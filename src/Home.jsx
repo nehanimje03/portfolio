@@ -1,12 +1,12 @@
 import React from "react";
-import profile from "./assets/profile.svg";
-import profile1 from "./assets/profile1.svg";
-import work from "./assets/work.svg";
-import work1 from "./assets/work1.svg";
-import work3 from "./assets/work3.svg";
-import work4 from "./assets/work4.svg";
-import work5 from "./assets/work5.svg";
-import work6 from "./assets/work6.svg";
+import profile1 from "./assets/profile1.png";
+import profile from "./assets/profile.jpeg";
+import ecommerce from "./assets/ecommerce.png";
+import edusity from "./assets/edusity.png";
+// import work3 from "./assets/work3.svg";
+// import work4 from "./assets/work4.svg";
+// import work5 from "./assets/work5.svg";
+// import work6 from "./assets/work6.svg";
 import titleimg from "./assets/title-img.svg";
 import logo from "./assets/logo.svg";
 import { IoIosMail } from "react-icons/io";
@@ -14,13 +14,36 @@ import { PiPhoneCallFill } from "react-icons/pi";
 import { MdLocationOn } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
 import { FaArrowRightLong } from "react-icons/fa6";
-
+import { services } from "./Services";
+import {
+  SiHtml5,
+  SiTailwindcss,
+  SiBootstrap,
+  SiReact,
+  SiJavascript,
+  SiNextdotjs,
+  SiPython,
+  SiDjango,
+  SiFlask,
+  SiFastapi,
+  SiMysql,
+  SiPostgresql,
+  SiSqlite,
+} from "react-icons/si";
+import { TbApi } from "react-icons/tb";
 const Home = () => {
   return (
     <div class="h-lv p-5 bg-black ">
       <header>
         <nav class="flex justify-around  text-white">
-          <img src={logo} />
+          {/* <img src={logo} /> */}
+          <div class=" flex relative">
+            <h1 class="text-4xl font-bold z-10 relative">Neha</h1>
+            <img
+              src={titleimg}
+              class="w-14 absolute -bottom-0.5 -right-5 z-[1]"
+            />
+          </div>
           {/* <span class="text-4xl font-bold">AleX </span> */}
           <ul class="flex gap-10">
             <li>Home</li>
@@ -48,15 +71,19 @@ const Home = () => {
       </header>
       <main>
         <section class="flex items-center flex-col">
-          <img src={profile} class="w-60 m-5" alt="profile" />
+          <img
+            src={profile1}
+            class="w-60 m-5"
+            alt="profile"
+          />
           <h1 class="text-center font-bold text-6xl">
             <span class="bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
-              I'm Akshay kumbhare,
+              I'm Neha Nimje,
             </span>{" "}
             <span class="text-white">
               {" "}
-              frontend <br />
-              developer based in USA.
+              Fullstack <br />
+              developer based in india.
             </span>
           </h1>
           <p class="text-white text-center text-lg p-6">
@@ -83,7 +110,10 @@ const Home = () => {
             />
           </div>
           <div class="flex gap-16">
-            <img src={profile1} class="rounded-xl w-80" />
+            <img
+              src={profile}
+              class="rounded-xl w-1/3"
+            />
             <div>
               <p class="text-lg">
                 I am an experienced Frontend Developer with over a decade of
@@ -97,29 +127,89 @@ const Home = () => {
                 extensive experience but also in the <br />
                 enthusiasm and dedication I bring to each project.
               </p>
-              <div class="flex  gap-8 mt-10 hover:scale-105 duration-500  items-center">
-                <p class="grid-cols-3 text-xl">HTML & CSS</p>
-                <div className=" h-4 grid-cols-7 rounded-full">
-                  <div className="h-2 w-52 bg-gradient-to-r from-purple-700 to-orange-600 rounded-full"></div>
-                </div>
-              </div>
-              <div class="flex w-full gap-[4.5rem] mt-4 hover:scale-105 duration-500">
-                <p class="text-xl">React JS</p>
-                <div className=" h-4  rounded-full">
-                  <div className="h-2 w-80 bg-gradient-to-r from-purple-700 to-orange-600 rounded-full"></div>
-                </div>
-              </div>
-              <div class="flex gap-[3.4rem] mt-4 hover:scale-105 duration-500">
-                <p class="text-xl">JavaScript</p>
-                <div className=" h-4  rounded-full">
-                  <div className="h-2 w-64 bg-gradient-to-r from-purple-700 to-orange-600 rounded-full"></div>
-                </div>
-              </div>
-              <div class="flex gap-20 mt-4 hover:scale-105 duration-500">
-                <p class="grid-cols-4 text-xl">Next JS</p>
-                <div className=" h-4 grid-cols-6  rounded-full">
-                  <div className="h-2 w-52 bg-gradient-to-r from-purple-700 to-orange-600 rounded-full"></div>
-                </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 py-10">
+                {[
+                  {
+                    name: "HTML & CSS",
+                    icon: <SiHtml5 className="text-orange-500" />,
+                    color: "hover:border-orange-500",
+                  },
+                  {
+                    name: "Tailwind CSS",
+                    icon: <SiTailwindcss className="text-cyan-400" />,
+                    color: "hover:border-cyan-400",
+                  },
+                  {
+                    name: "Bootstrap",
+                    icon: <SiBootstrap className="text-purple-500" />,
+                    color: "hover:border-purple-500",
+                  },
+                  {
+                    name: "React JS",
+                    icon: <SiReact className="text-cyan-400" />,
+                    color: "hover:border-cyan-400",
+                  },
+                  {
+                    name: "JavaScript",
+                    icon: <SiJavascript className="text-yellow-400" />,
+                    color: "hover:border-yellow-400",
+                  },
+                  {
+                    name: "Next JS",
+                    icon: <SiNextdotjs className="text-white" />,
+                    color: "hover:border-white",
+                  },
+                  {
+                    name: "Python",
+                    icon: <SiPython className="text-blue-400" />,
+                    color: "hover:border-blue-400",
+                  },
+                  {
+                    name: "Django",
+                    icon: <SiDjango className="text-green-600" />,
+                    color: "hover:border-green-600",
+                  },
+                  {
+                    name: "Django REST",
+                    icon: <TbApi className="text-indigo-400" />,
+                    color: "hover:border-indigo-400",
+                  },
+                  {
+                    name: "Flask",
+                    icon: <SiFlask className="text-gray-400" />,
+                    color: "hover:border-gray-400",
+                  },
+                  {
+                    name: "FastAPI",
+                    icon: <SiFastapi className="text-teal-400" />,
+                    color: "hover:border-teal-400",
+                  },
+                  {
+                    name: "MySQL",
+                    icon: <SiMysql className="text-blue-500" />,
+                    color: "hover:border-blue-500",
+                  },
+                  {
+                    name: "PostgreSQL",
+                    icon: <SiPostgresql className="text-sky-500" />,
+                    color: "hover:border-sky-500",
+                  },
+                  {
+                    name: "SQLite",
+                    icon: <SiSqlite className="text-gray-500" />,
+                    color: "hover:border-gray-500",
+                  },
+                ].map((skill, index) => (
+                  <div
+                    key={index}
+                    className={`flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/10 hover:scale-105 transition-all duration-300 cursor-pointer ${skill.color} group`}
+                  >
+                    <div className="text-xl">{skill.icon}</div>
+                    <p className="text-sm md:text-base font-medium text-gray-200 group-hover:text-white transition">
+                      {skill.name}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -128,7 +218,7 @@ const Home = () => {
           <div class="flex gap-32  ">
             <div class="text-center hover:scale-125 duration-700 ease-in-out">
               <h1 class="text-4xl mb-3 font-bold bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
-                10+
+                5+
               </h1>
 
               <p class="text-lg">YEARS OF EXPERIENCE</p>
@@ -139,7 +229,7 @@ const Home = () => {
           <div class="flex gap-32  ">
             <div class="text-center hover:scale-125 duration-700 ease-in-out">
               <h1 class="text-4xl mb-3 font-bold bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
-                90+
+                30+
               </h1>
 
               <p class="text-lg">PROJECTS COMPLETED</p>
@@ -150,7 +240,7 @@ const Home = () => {
           <div class="flex gap-32 ">
             <div class="text-center hover:scale-125 duration-700 ease-in-out">
               <h1 class="text-4xl mb-3 font-bold bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
-                15+
+                5+
               </h1>
 
               <p class="text-lg">HAPPY CLIENTS</p>
@@ -158,105 +248,40 @@ const Home = () => {
           </div>
         </section>
         <section class="my-10  flex flex-col items-center text-white">
-          <div class="mb-20 flex relative ">
-            <h1 class="text-6xl font-bold z-10 relative ">My Services</h1>
-            <img
-              src={titleimg}
-              class="w-40 absolute -bottom-1.5 -right-8 z-[1]"
-            />
-          </div>
-
-          <div class="flex flex-wrap gap-8 items-center justify-center">
-            <div class="border-2 border-white px-10 py-5 rounded-lg hover:bg-gradient-to-tr from-purple-950 via-red-900 to-orange-950 hover:border-purple hover:scale-105 duration-700 ease-in-out">
-              <p class="text-2xl pb-3">01</p>
-              <p class="text-3xl pb-3 bg-gradient-to-r font-bold from-purple-600 to-orange-500 inline-block text-transparent bg-clip-text">
-                Web design
-              </p>
-              <p class="text-xl pb-10">
-                Web development is the process <br />
-                of building, programming...
-              </p>
-              <p class="flex items-center gap-3 text-xl">
-                Read more
-                <FaArrowRightLong />
-              </p>
+          <section class="my-10 flex flex-col items-center text-white">
+            <div class="mb-20 flex relative">
+              <h1 class="text-6xl font-bold z-10 relative">My Services</h1>
+              <img
+                src={titleimg}
+                class="w-40 absolute -bottom-1.5 -right-8 z-[1]"
+              />
             </div>
 
-            <div class="border-2 border-white px-10 py-5 rounded-lg hover:bg-gradient-to-tr from-purple-950 via-red-900 to-orange-950 hover:border-purple hover:scale-105 duration-700 ease-in-out">
-              <p class="text-2xl pb-3">01</p>
-              <p class="text-3xl pb-3 bg-gradient-to-r font-bold from-purple-600 to-orange-500 inline-block text-transparent bg-clip-text">
-                Web design
-              </p>
-              <p class="text-xl pb-10">
-                Web development is the process <br />
-                of building, programming...
-              </p>
-              <p class="flex items-center gap-3 text-xl">
-                Read more
-                <FaArrowRightLong />
-              </p>
-            </div>
+            {/* GRID FIX */}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-10 w-full max-w-6xl">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  class="border border-white/30 rounded-xl p-8 hover:scale-105 transition-all duration-500"
+                >
+                  <p class="text-lg mb-4">{service.number}</p>
 
-            <div class="border-2 border-white px-10 py-5 rounded-lg hover:bg-gradient-to-tr from-purple-950 via-red-900 to-orange-950 hover:border-purple hover:scale-105 duration-700 ease-in-out">
-              <p class="text-2xl pb-3">01</p>
-              <p class="text-3xl pb-3 bg-gradient-to-r font-bold from-purple-600 to-orange-500 inline-block text-transparent bg-clip-text">
-                Web design
-              </p>
-              <p class="text-xl pb-10">
-                Web development is the process <br />
-                of building, programming...
-              </p>
-              <p class="flex items-center gap-3 text-xl">
-                Read more
-                <FaArrowRightLong />
-              </p>
-            </div>
+                  <h2 class="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
+                    {service.title}
+                  </h2>
 
-            <div class="border-2 border-white px-10 py-5 rounded-lg hover:bg-gradient-to-tr from-purple-950 via-red-900 to-orange-950 hover:border-purple hover:scale-105 duration-700 ease-in-out">
-              <p class="text-2xl pb-3">01</p>
-              <p class="text-3xl pb-3 bg-gradient-to-r font-bold from-purple-600 to-orange-500 inline-block text-transparent bg-clip-text">
-                Web design
-              </p>
-              <p class="text-xl pb-10">
-                Web development is the process <br />
-                of building, programming...
-              </p>
-              <p class="flex items-center gap-3 text-xl">
-                Read more
-                <FaArrowRightLong />
-              </p>
-            </div>
+                  <p class="text-gray-300 text-sm leading-6 mb-10">
+                    {service.description}
+                  </p>
 
-            <div class="border-2 border-white px-10 py-5 rounded-lg hover:bg-gradient-to-tr from-purple-950 via-red-900 to-orange-950 hover:border-purple hover:scale-105 duration-700 ease-in-out">
-              <p class="text-2xl pb-3">01</p>
-              <p class="text-3xl pb-3 bg-gradient-to-r font-bold from-purple-600 to-orange-500 inline-block text-transparent bg-clip-text">
-                Web design
-              </p>
-              <p class="text-xl pb-10">
-                Web development is the process <br />
-                of building, programming...
-              </p>
-              <p class="flex items-center gap-3 text-xl">
-                Read more
-                <FaArrowRightLong />
-              </p>
+                  <div class="flex items-center gap-2 text-white cursor-pointer hover:gap-4 transition-all duration-300">
+                    <span>Read more</span>
+                    <FaArrowRightLong />
+                  </div>
+                </div>
+              ))}
             </div>
-
-            <div class="border-2 border-white px-10 py-5 rounded-lg hover:bg-gradient-to-tr from-purple-950 via-red-900 to-orange-950 hover:border-purple hover:scale-105 duration-700 ease-in-out">
-              <p class="text-2xl pb-3">01</p>
-              <p class="text-3xl pb-3 bg-gradient-to-r font-bold from-purple-600 to-orange-500 inline-block text-transparent bg-clip-text">
-                Web design
-              </p>
-              <p class="text-xl pb-10">
-                Web development is the process <br />
-                of building, programming...
-              </p>
-              <p class="flex items-center gap-3 text-xl">
-                Read more
-                <FaArrowRightLong />
-              </p>
-            </div>
-          </div>
+          </section>
         </section>
 
         <section class="text-white flex flex-col items-center m-10">
@@ -269,15 +294,15 @@ const Home = () => {
           </div>
           <div class="flex flex-wrap gap-8 justify-center ">
             <img
-              src={work}
+              src={ecommerce}
               class="w-96 hover:border-4 border-pink-600 hover:rounded-xl hover:scale-105 duration-700 ease-in-out"
             />
 
             <img
-              src={work1}
+              src={edusity}
               class="w-96 hover:border-4 border-pink-600 hover:rounded-xl hover:scale-105 duration-700 ease-in-out"
             />
-            <img
+            {/* <img
               src={work3}
               class="w-96 hover:border-4 border-pink-600 hover:rounded-xl hover:scale-105 duration-700 ease-in-out"
             />
@@ -292,7 +317,7 @@ const Home = () => {
             <img
               src={work6}
               class="w-96 hover:border-4 border-pink-600 hover:rounded-xl hover:scale-105 duration-700 ease-in-out"
-            />
+            /> */}
           </div>
           <button class="flex justify-center items-center gap-3 border-2 rounded-full px-9 py-4 text-xl border-white m-20 hover:scale-105 duration-700 ease-in-out">
             Show More <FaArrowRightLong />
