@@ -81,7 +81,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
       {" "}
-      <header className="fixed top-0 left-0 right-0 md:py-8 py-5 z-50 bg-black/90 backdrop-blur-md px-4 sm:px-8 lg:px-[10%]">
+      <header className="fixed top-0 left-0 right-0 md:py-8 py-5 z-50 bg-black/90 backdrop-blur-md px-4 sm:px-14 lg:px-[10%]">
         {" "}
         <nav className="flex items-center justify-between text-white relative">
           {/* Logo */}
@@ -164,7 +164,7 @@ const Home = () => {
           )}
         </nav>
       </header>
-      <main className="pt-24 px-4 sm:px-8 lg:px-[10%]">
+      <main className="pt-24 px-4 sm:px-14 lg:px-[10%]">
         {" "}
         <section
           id="home"
@@ -197,11 +197,11 @@ const Home = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-4">
-            <button className="bg-gradient-to-r from-purple-700 to-orange-600 rounded-full px-6 sm:px-8 py-3 sm:py-4 text-white hover:scale-105 transition duration-300">
+            <button className="bg-gradient-to-r from-purple-700 to-orange-600 rounded-full px-6 sm:px-14 py-3 sm:py-4 text-white hover:scale-105 transition duration-300">
               Connect with me
             </button>
 
-            <button className="text-white border-2 border-white/40 hover:border-purple-500 rounded-full px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition duration-300">
+            <button className="text-white border-2 border-white/40 hover:border-purple-500 rounded-full sm:px-14  py-3 sm:py-4 hover:scale-105 transition duration-300">
               My Resume
             </button>
           </div>
@@ -536,7 +536,7 @@ const Home = () => {
                   ></textarea>
                 </div>
 
-                <button className="bg-gradient-to-r from-purple-600 to-orange-600 px-8 py-3 rounded-full hover:scale-105 transition duration-500 w-full sm:w-auto">
+                <button className="bg-gradient-to-r from-purple-600 to-orange-600 sm:px-14 py-3 rounded-full hover:scale-105 transition duration-500 w-full sm:w-auto">
                   Submit Now
                 </button>
               </form>
@@ -544,7 +544,7 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <footer className="my-20 flex flex-col px-4 md:px-10  sm:px-8 lg:px-[10%] md:py-16 py-5">
+      <footer className="my-20 flex flex-col px-4 md:px-10  sm:px-14 lg:px-[10%] md:py-16 py-5">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between gap-10">
           {/* Left */}
