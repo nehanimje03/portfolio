@@ -81,7 +81,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
       {" "}
-      <header className="fixed top-0 left-0 right-0 md:py-8 py-5 z-50 bg-black/90 backdrop-blur-md px-4 sm:px-14 lg:px-[10%]">
+      <header className="fixed top-0 left-0 right-0 md:py-8 py-6 z-50 bg-black/90 backdrop-blur-md px-8 sm:px-16 lg:px-[10%]">
         {" "}
         <nav className="flex items-center justify-between text-white relative">
           {/* Logo */}
@@ -137,12 +137,15 @@ const Home = () => {
           {/* Mobile Menu */}
           {menuOpen && (
             <div className="absolute top-16 left-0 w-full bg-slate-900 border border-slate-700 rounded-xl p-6 md:hidden z-50">
-              <ul className="hidden md:flex gap-10 items-center">
+              <ul className=" md:flex gap-10 items-center">
                 {navItems.map((item) => (
                   <li
                     key={item.id}
-                    onClick={() => handleNavClick(item.id)}
-                    className={`relative cursor-pointer transition-all duration-300 pb-5 ${
+                    onClick={() => {
+                      handleNavClick(item.id);
+                      setMenuOpen(false);
+                    }}
+                    className={`relative cursor-pointer py-2 ${
                       active === item.id
                         ? "text-white font-medium"
                         : "text-gray-300 hover:text-white"
@@ -154,7 +157,7 @@ const Home = () => {
                       <img
                         src={titleimg}
                         alt="active"
-                        className="w-10 absolute -bottom-1 left-1/2 -translate-x-1/2"
+                        className="absolute w-8 left-14 -translate-x-1/2 top-7"
                       />
                     )}
                   </li>
@@ -164,11 +167,11 @@ const Home = () => {
           )}
         </nav>
       </header>
-      <main className="pt-24 px-4 sm:px-14 lg:px-[10%]">
+      <main className="pt-24 px-8 sm:px-16 lg:px-[10%]">
         {" "}
         <section
           id="home"
-          className="flex flex-col items-center text-center md:py-16 py-5 "
+          className="flex flex-col items-center text-center md:py-16 py-6 "
         >
           {/* Profile Image */}
           <img
@@ -197,21 +200,21 @@ const Home = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-4">
-            <button className="bg-gradient-to-r from-purple-700 to-orange-600 rounded-full px-6 sm:px-14 py-3 sm:py-4 text-white hover:scale-105 transition duration-300">
+            <button className="bg-gradient-to-r from-purple-700 to-orange-600 rounded-full px-6 sm:px-16 py-3 sm:py-4 text-white hover:scale-105 transition duration-300">
               Connect with me
             </button>
 
-            <button className="text-white border-2 border-white/40 hover:border-purple-500 rounded-full sm:px-14  py-3 sm:py-4 hover:scale-105 transition duration-300">
+            <button className="text-white border-2 border-white/40 hover:border-purple-500 rounded-full sm:px-16  py-3 sm:py-4 hover:scale-105 transition duration-300">
               My Resume
             </button>
           </div>
         </section>
         <section
           id="about"
-          className="flex flex-col items-center text-white md:py-16 py-5 "
+          className="flex flex-col items-center text-white md:py-16 py-6 "
         >
           {/* Title */}
-          <div className="mb-12 sm:mb-16 flex relative justify-center">
+          <div className="mb-8 sm:mb-16 flex relative justify-center">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10">
               About me
             </h1>
@@ -322,7 +325,7 @@ const Home = () => {
                 ].map((skill, index) => (
                   <div
                     key={index}
-                    className={`flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-3 sm:px-4 py-2 sm:py-3 border border-white/10 hover:scale-105 transition-all duration-300 cursor-pointer ${skill.color} group`}
+                    className={`flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-3 sm:px-8 py-2 sm:py-3 border border-white/10 hover:scale-105 transition-all duration-300 cursor-pointer ${skill.color} group`}
                   >
                     <div className="text-lg sm:text-xl">{skill.icon}</div>
                     <p className="text-xs sm:text-sm md:text-base font-medium text-gray-200 group-hover:text-white transition">
@@ -336,7 +339,7 @@ const Home = () => {
         </section>
         <section
           id="services"
-          className="text-white flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 lg:gap-32 md:py-16 py-5  "
+          className="text-white flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 lg:gap-32 md:py-16 py-6  "
         >
           {/* Experience */}
           <div className="text-center hover:scale-110 transition duration-500">
@@ -374,10 +377,10 @@ const Home = () => {
         </section>
         <section
           id="portfolio"
-          className="md:py-16 py-5 flex flex-col items-center text-white  "
+          className="md:py-16 py-6 flex flex-col items-center text-white  "
         >
           {/* Title */}
-          <div className="mb-12 sm:mb-16 lg:mb-20 flex relative justify-center">
+          <div className=" sm:mb-16 mb-8 lg:mb-20 flex relative justify-center">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10 text-center">
               My Services
             </h1>
@@ -423,10 +426,10 @@ const Home = () => {
         </section>
         <section
           id="contact"
-          className="text-white flex flex-col items-center px-4  md:py-16 py-5"
+          className="text-white flex flex-col items-center   md:py-16 py-6"
         >
           {/* Title */}
-          <div className="mb-12 sm:mb-16 lg:mb-20 flex relative justify-center text-center">
+          <div className="mb-8 sm:mb-16 lg:mb-20 flex relative justify-center text-center">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10">
               My Latest Work
             </h1>
@@ -460,9 +463,9 @@ const Home = () => {
             Show More <FaArrowRightLong />
           </button>
         </section>
-        <section className="text-white flex flex-col items-center px-4  md:py-16 py-5">
+        <section className="text-white flex flex-col items-center   md:py-16 py-6">
           {/* Title */}
-          <div className="mb-12 sm:mb-16 lg:mb-20 flex relative justify-center text-center">
+          <div className="mb-8 sm:mb-16 lg:mb-20 flex relative justify-center text-center">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10">
               Get In Touch{" "}
             </h1>
@@ -482,7 +485,7 @@ const Home = () => {
                 Let's talk
               </h1>
 
-              <p className="py-5 text-sm sm:text-base text-gray-300 leading-7">
+              <p className="py-6 text-sm sm:text-base text-gray-300 leading-7">
                 I'm currently available to take on new projects. Feel free to
                 send me a message about anything you'd like me to work on. I
                 respond quickly and am open to freelance opportunities.
@@ -536,7 +539,7 @@ const Home = () => {
                   ></textarea>
                 </div>
 
-                <button className="bg-gradient-to-r from-purple-600 to-orange-600 sm:px-14 py-3 rounded-full hover:scale-105 transition duration-500 w-full sm:w-auto">
+                <button className="bg-gradient-to-r from-purple-600 to-orange-600 sm:px-16 py-3 rounded-full hover:scale-105 transition duration-500 w-full sm:w-auto">
                   Submit Now
                 </button>
               </form>
@@ -544,7 +547,7 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <footer className="my-20 flex flex-col px-4 md:px-10  sm:px-14 lg:px-[10%] md:py-16 py-5">
+      <footer className="sm:my-20 my-10 flex flex-col px-8 md:px-10  sm:px-16 lg:px-[10%] md:py-16 py-6">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between gap-10">
           {/* Left */}
