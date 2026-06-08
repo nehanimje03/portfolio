@@ -494,18 +494,18 @@ const Home = () => {
               <div className="flex items-center gap-4 mb-4">
                 <IoIosMail size={24} />
                 <span className="text-sm sm:text-base">
-                  greatstackdev@gmail.com
+                  nehanimje03@gmail.com
                 </span>
               </div>
 
               <div className="flex items-center gap-4 mb-4">
                 <PiPhoneCallFill size={24} />
-                <span className="text-sm sm:text-base">+772-825-524</span>
+                <span className="text-sm sm:text-base">+91 9327461069</span>
               </div>
 
               <div className="flex items-center gap-4">
                 <MdLocationOn size={24} />
-                <span className="text-sm sm:text-base">CA, United States</span>
+                <span className="text-sm sm:text-base">Surat, India</span>
               </div>
             </div>
 
@@ -547,11 +547,11 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <footer className="sm:my-20 my-10 flex flex-col px-8 md:px-10  sm:px-16 lg:px-[10%] md:py-16 py-6">
+      <footer className="sm:my-20 my-10 flex flex-col px-8 md:px-10  sm:px-16 lg:px-[10%] sm:py-16 py-0">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between gap-10">
           {/* Left */}
-          <div className=" flex flex-col md:items-start items-center   py-16 text-white text-center md:text-left">
+          <div className=" flex flex-col md:items-start items-center   sm:py-16 py-0 text-white text-center md:text-left">
             <div className="flex relative items-center justify-center md:justify-start">
               <h1 className="text-3xl sm:text-4xl font-bold z-10 relative">
                 Neha
@@ -591,10 +591,10 @@ const Home = () => {
         <div className="my-8 h-0.5 bg-white w-full opacity-30" />
 
         {/* Bottom Section */}
-        <div className="text-white flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p>© 2023 Alex Bennett. All rights reserved.</p>
+        <div className="text-white flex flex-col md:flex-row justify-between items-center sm:gap-4 gap-2 text-sm">
+          <p>© 2026 Neha Nimje. All rights reserved.</p>
 
-          <ul className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6">
+          <ul className="flex flex-wrap justify-center md:justify-end gap-1 md:gap-6 sm:flex-row flex-col ">
             <li className="cursor-pointer hover:underline">
               Terms of Services
             </li>
