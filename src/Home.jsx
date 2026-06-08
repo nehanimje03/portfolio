@@ -193,7 +193,7 @@ const Home = () => {
 
           {/* Paragraph */}
           <p className="text-white text-sm sm:text-base md:text-lg text-center px-2 sm:px-6 py-6 max-w-2xl">
-            I am a frontend developer passionate about building modern,
+            I am a FullStack developer passionate about building modern,
             responsive web applications. I enjoy working with React, Tailwind
             CSS, and backend technologies to create full-stack solutions.
           </p>
@@ -237,18 +237,19 @@ const Home = () => {
             {/* Text Section */}
             <div className="w-full">
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-7">
-                I am an experienced Frontend Developer with over a decade of
-                professional expertise in the field.
+                I am a Full Stack Developer with over 3 years of experience
+                building modern, responsive, and high-performance web
+                applications.
                 <br />
                 <br />
-                Throughout my career, I have collaborated with prestigious
-                organizations, contributing to their success and growth.
+                I specialize in creating seamless user experiences and robust
+                backend systems using the latest technologies and best
+                practices.
                 <br />
                 <br />
-                My passion for frontend development is reflected in both my
-                experience and the dedication I bring to every project.
+                My goal is to deliver reliable, scalable, and efficient
+                solutions that help businesses grow and succeed online.
               </p>
-
               {/* Skills Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 py-16">
                 {[
@@ -344,7 +345,7 @@ const Home = () => {
           {/* Experience */}
           <div className="text-center hover:scale-110 transition duration-500">
             <h1 className="text-3xl sm:text-4xl font-bold mb-2 bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
-              5+
+              3+
             </h1>
             <p className="text-sm sm:text-base lg:text-lg">
               YEARS OF EXPERIENCE
@@ -370,7 +371,7 @@ const Home = () => {
           {/* Clients */}
           <div className="text-center hover:scale-110 transition duration-500">
             <h1 className="text-3xl sm:text-4xl font-bold mb-2 bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
-              5+
+              10+
             </h1>
             <p className="text-sm sm:text-base lg:text-lg">HAPPY CLIENTS</p>
           </div>
@@ -564,7 +565,7 @@ const Home = () => {
               />
             </div>
             <p className="mt-4 text-sm md:text-base leading-relaxed">
-              I am a fullstack developer from INDIA with 5 years of{" "}
+              I am a fullstack developer from INDIA with 3 years of{" "}
               <br className="hidden md:block" />
               experience in companies
             </p>
