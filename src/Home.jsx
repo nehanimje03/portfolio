@@ -3,7 +3,7 @@ import profile1 from "./assets/profile1.png";
 import profile from "./assets/profile.jpeg";
 import ecommerce from "./assets/ecommerce.png";
 import edusity from "./assets/edusity.png";
-// import work3 from "./assets/work3.svg";
+import portfolio from "./assets/portfolio.png";
 // import work4 from "./assets/work4.svg";
 // import work5 from "./assets/work5.svg";
 // import work6 from "./assets/work6.svg";
@@ -443,7 +443,7 @@ const Home = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 w-full">
             <img
               src={ecommerce}
               alt="project 1"
@@ -453,6 +453,12 @@ const Home = () => {
 
             <img
               src={edusity}
+              alt="project 2"
+              className="w-full rounded-xl border border-white/10 hover:border-pink-500 
+      hover:scale-105 transition duration-500 object-cover"
+            />
+            <img
+              src={portfolio}
               alt="project 2"
               className="w-full rounded-xl border border-white/10 hover:border-pink-500 
       hover:scale-105 transition duration-500 object-cover"
