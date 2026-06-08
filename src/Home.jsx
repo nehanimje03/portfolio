@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import profile1 from "./assets/profile1.png";
 import profile from "./assets/profile.jpeg";
 import ecommerce from "./assets/ecommerce.png";
@@ -32,102 +32,177 @@ import {
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 const Home = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div class="h-lv p-5 bg-black ">
-      <header>
-        <nav class="flex justify-around  text-white">
-          {/* <img src={logo} /> */}
-          <div class=" flex relative">
-            <h1 class="text-4xl font-bold z-10 relative">Neha</h1>
+    <div class="min-h-screen py-10 bg-black overflow-x-hidden px-4 sm:px-8 lg:px-[10%]">
+      {" "}
+      <header class="py-5">
+        <nav class="flex items-center justify-between text-white relative">
+          {/* Logo */}
+          <div class="flex relative">
+            <h1 class="text-3xl sm:text-4xl font-bold z-10 relative">Neha</h1>
             <img
               src={titleimg}
-              class="w-14 absolute -bottom-0.5 -right-5 z-[1]"
+              alt="title"
+              class="w-10 sm:w-14 absolute -bottom-1 -right-4 z-[1]"
             />
           </div>
-          {/* <span class="text-4xl font-bold">AleX </span> */}
-          <ul class="flex gap-10">
-            <li>Home</li>
-            <li>About Me</li>
-            <li>Services</li>
-            <li>Portfolio</li>
-            <li>Contact</li>
+
+          {/* Desktop Menu */}
+          <ul class="hidden md:flex gap-8 lg:gap-10 items-center">
+            <li class="cursor-pointer hover:text-purple-400 transition">
+              Home
+            </li>
+            <li class="cursor-pointer hover:text-purple-400 transition">
+              About Me
+            </li>
+            <li class="cursor-pointer hover:text-purple-400 transition">
+              Services
+            </li>
+            <li class="cursor-pointer hover:text-purple-400 transition">
+              Portfolio
+            </li>
+            <li class="cursor-pointer hover:text-purple-400 transition">
+              Contact
+            </li>
           </ul>
-          <button class="bg-gradient-to-r from-purple-500 to-orange-500 rounded-full px-6 py-2">
+
+          {/* Desktop Button */}
+          <button class="hidden md:block bg-gradient-to-r from-purple-500 to-orange-500 rounded-full px-6 py-2 hover:scale-105 transition">
             Connect with me
           </button>
-          <div class="hidden ">
-            <ul class=" gap-10">
-              <li>Home</li>
-              <li>About Me</li>
-              <li>Services</li>
-              <li>Portfolio</li>
-              <li>Contact</li>
+
+          {/* Mobile Hamburger */}
+          <button
+            class="md:hidden text-3xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
+
+          {/* Mobile Menu */}
+          <div
+            class={`absolute top-16 left-0 w-full bg-slate-900 border border-slate-700 rounded-xl p-6 transition-all duration-300 md:hidden ${
+              menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+            }`}
+          >
+            <ul class="flex flex-col gap-5 text-center">
+              <li
+                class="cursor-pointer hover:text-purple-400"
+                onClick={() => setMenuOpen(false)}
+              >
+                Home
+              </li>
+              <li
+                class="cursor-pointer hover:text-purple-400"
+                onClick={() => setMenuOpen(false)}
+              >
+                About Me
+              </li>
+              <li
+                class="cursor-pointer hover:text-purple-400"
+                onClick={() => setMenuOpen(false)}
+              >
+                Services
+              </li>
+              <li
+                class="cursor-pointer hover:text-purple-400"
+                onClick={() => setMenuOpen(false)}
+              >
+                Portfolio
+              </li>
+              <li
+                class="cursor-pointer hover:text-purple-400"
+                onClick={() => setMenuOpen(false)}
+              >
+                Contact
+              </li>
             </ul>
-            <button class="bg-gradient-to-r from-purple-500 to-orange-500 rounded-full px-6 py-2">
+
+            <button class="w-full mt-6 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full py-3">
               Connect with me
             </button>
           </div>
         </nav>
       </header>
       <main>
-        <section class="flex items-center flex-col">
+        <section className="flex flex-col items-center text-center md:py-10 py-5 ">
+          {/* Profile Image */}
           <img
             src={profile1}
-            class="w-60 m-5"
             alt="profile"
+            className="w-32 sm:w-44 md:w-52 lg:w-60 m-5 transition-transform duration-500 hover:scale-105"
           />
-          <h1 class="text-center font-bold text-6xl">
-            <span class="bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
+
+          {/* Heading */}
+          <h1 className="font-bold leading-tight text-2xl sm:text-4xl md:text-5xl lg:text-6xl">
+            <span className="bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
               I'm Neha Nimje,
             </span>{" "}
-            <span class="text-white">
-              {" "}
-              Fullstack <br />
-              developer based in india.
+            <span className="text-white block sm:inline">
+              Fullstack <br className="hidden sm:block" />
+              developer based in India.
             </span>
           </h1>
-          <p class="text-white text-center text-lg p-6">
-            I am a frontend developer from California, USA with 10 years of
-            experience in multiple <br />
-            companies like Microsoft, Tesla and Apple.
+
+          {/* Paragraph */}
+          <p className="text-white text-sm sm:text-base md:text-lg text-center px-2 sm:px-6 py-6 max-w-2xl">
+            I am a frontend developer passionate about building modern,
+            responsive web applications. I enjoy working with React, Tailwind
+            CSS, and backend technologies to create full-stack solutions.
           </p>
-          <div class="flex gap-8">
-            <button className="bg-gradient-to-r from-purple-700 to-orange-600 rounded-full px-8 py-4 text-white hover:border-white hover:border-2">
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-4">
+            <button className="bg-gradient-to-r from-purple-700 to-orange-600 rounded-full px-6 sm:px-8 py-3 sm:py-4 text-white hover:scale-105 transition duration-300">
               Connect with me
             </button>
 
-            <button class="text-white border-2 border-white-500 hover:border-2 hover:border-purple-500 rounded-full px-12 py-4">
+            <button className="text-white border-2 border-white/40 hover:border-purple-500 rounded-full px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition duration-300">
               My Resume
             </button>
           </div>
         </section>
-        <section class="flex flex-col m-20 items-center text-white">
-          <div class="mb-20 flex relative ">
-            <h1 class="text-6xl font-bold z-10 relative ">About me</h1>
+        <section className="flex flex-col items-center text-white ">
+          {/* Title */}
+          <div className="mb-12 sm:mb-16 flex relative justify-center">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10">
+              About me
+            </h1>
             <img
               src={titleimg}
-              class="w-40 absolute -bottom-1.5 -right-8 z-[1]"
+              alt="title"
+              className="w-20 sm:w-32 lg:w-40 absolute -bottom-2 -right-6 z-[1]"
             />
           </div>
-          <div class="flex gap-16">
+
+          {/* Main Content */}
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center w-full">
+            {/* Profile Image */}
             <img
               src={profile}
-              class="rounded-xl w-1/3"
+              alt="profile"
+              className="rounded-xl w-2/3 sm:w-1/2 lg:w-1/3 object-cover"
             />
-            <div>
-              <p class="text-lg">
+
+            {/* Text Section */}
+            <div className="w-full">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-7">
                 I am an experienced Frontend Developer with over a decade of
                 professional expertise in the field.
-                <br /> Throughout my career, I have had the privilege of
-                collaborating with prestigious organizations, contributing{" "}
-                <br /> to their success and growth.
                 <br />
                 <br />
-                My passion for frontend development is not only reflected in my
-                extensive experience but also in the <br />
-                enthusiasm and dedication I bring to each project.
+                Throughout my career, I have collaborated with prestigious
+                organizations, contributing to their success and growth.
+                <br />
+                <br />
+                My passion for frontend development is reflected in both my
+                experience and the dedication I bring to every project.
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 py-10">
+
+              {/* Skills Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 py-10">
                 {[
                   {
                     name: "HTML & CSS",
@@ -202,10 +277,10 @@ const Home = () => {
                 ].map((skill, index) => (
                   <div
                     key={index}
-                    className={`flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/10 hover:scale-105 transition-all duration-300 cursor-pointer ${skill.color} group`}
+                    className={`flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-3 sm:px-4 py-2 sm:py-3 border border-white/10 hover:scale-105 transition-all duration-300 cursor-pointer ${skill.color} group`}
                   >
-                    <div className="text-xl">{skill.icon}</div>
-                    <p className="text-sm md:text-base font-medium text-gray-200 group-hover:text-white transition">
+                    <div className="text-lg sm:text-xl">{skill.icon}</div>
+                    <p className="text-xs sm:text-sm md:text-base font-medium text-gray-200 group-hover:text-white transition">
                       {skill.name}
                     </p>
                   </div>
@@ -214,181 +289,200 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section class="text-white flex gap-32 justify-center m-20">
-          <div class="flex gap-32  ">
-            <div class="text-center hover:scale-125 duration-700 ease-in-out">
-              <h1 class="text-4xl mb-3 font-bold bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
-                5+
-              </h1>
-
-              <p class="text-lg">YEARS OF EXPERIENCE</p>
-            </div>
-            <div class="bg-white w-0.5"></div>
+        <section className="text-white flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 lg:gap-32 my-16 px-4 ">
+          {/* Experience */}
+          <div className="text-center hover:scale-110 transition duration-500">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-2 bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
+              5+
+            </h1>
+            <p className="text-sm sm:text-base lg:text-lg">
+              YEARS OF EXPERIENCE
+            </p>
           </div>
 
-          <div class="flex gap-32  ">
-            <div class="text-center hover:scale-125 duration-700 ease-in-out">
-              <h1 class="text-4xl mb-3 font-bold bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
-                30+
-              </h1>
+          {/* Divider (hidden on mobile) */}
+          <div className="hidden md:block w-0.5 h-16 bg-white/40"></div>
 
-              <p class="text-lg">PROJECTS COMPLETED</p>
-            </div>
-            <div class="bg-white w-0.5"></div>
+          {/* Projects */}
+          <div className="text-center hover:scale-110 transition duration-500">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-2 bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
+              30+
+            </h1>
+            <p className="text-sm sm:text-base lg:text-lg">
+              PROJECTS COMPLETED
+            </p>
           </div>
 
-          <div class="flex gap-32 ">
-            <div class="text-center hover:scale-125 duration-700 ease-in-out">
-              <h1 class="text-4xl mb-3 font-bold bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
-                5+
-              </h1>
+          {/* Divider */}
+          <div className="hidden md:block w-0.5 h-16 bg-white/40"></div>
 
-              <p class="text-lg">HAPPY CLIENTS</p>
-            </div>
+          {/* Clients */}
+          <div className="text-center hover:scale-110 transition duration-500">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-2 bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
+              5+
+            </h1>
+            <p className="text-sm sm:text-base lg:text-lg">HAPPY CLIENTS</p>
           </div>
         </section>
-        <section class="my-10  flex flex-col items-center text-white">
-          <section class="my-10 flex flex-col items-center text-white">
-            <div class="mb-20 flex relative">
-              <h1 class="text-6xl font-bold z-10 relative">My Services</h1>
-              <img
-                src={titleimg}
-                class="w-40 absolute -bottom-1.5 -right-8 z-[1]"
-              />
-            </div>
+        <section className="my-16 flex flex-col items-center text-white px-4 ">
+          {/* Title */}
+          <div className="mb-12 sm:mb-16 lg:mb-20 flex relative justify-center">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10 text-center">
+              My Services
+            </h1>
 
-            {/* GRID FIX */}
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-10 w-full max-w-6xl">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  class="border border-white/30 rounded-xl p-8 hover:scale-105 transition-all duration-500"
-                >
-                  <p class="text-lg mb-4">{service.number}</p>
-
-                  <h2 class="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
-                    {service.title}
-                  </h2>
-
-                  <p class="text-gray-300 text-sm leading-6 mb-10">
-                    {service.description}
-                  </p>
-
-                  <div class="flex items-center gap-2 text-white cursor-pointer hover:gap-4 transition-all duration-300">
-                    <span>Read more</span>
-                    <FaArrowRightLong />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        </section>
-
-        <section class="text-white flex flex-col items-center m-10">
-          <div class="m-20 flex relative ">
-            <h1 class="text-6xl font-bold z-10 relative ">My latest work</h1>
             <img
               src={titleimg}
-              class="w-40 absolute -bottom-1.5 -right-8 z-[1]"
+              alt="title"
+              className="w-20 sm:w-32 lg:w-40 absolute -bottom-2 -right-6 z-[1]"
             />
           </div>
-          <div class="flex flex-wrap gap-8 justify-center ">
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="border border-white/20 bg-white/5 backdrop-blur-sm rounded-xl p-6 sm:p-8 
+        hover:scale-105 transition-all duration-500 hover:border-purple-500"
+              >
+                {/* Number */}
+                <p className="text-sm sm:text-base mb-3 text-gray-300">
+                  {service.number}
+                </p>
+
+                {/* Title */}
+                <h2 className="text-xl sm:text-2xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
+                  {service.title}
+                </h2>
+
+                {/* Description */}
+                <p className="text-gray-300 text-sm sm:text-base leading-6 mb-8">
+                  {service.description}
+                </p>
+
+                {/* Read more */}
+                <div className="flex items-center gap-2 text-white cursor-pointer hover:gap-4 transition-all duration-300">
+                  <span className="text-sm sm:text-base">Read more</span>
+                  <FaArrowRightLong />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="text-white flex flex-col items-center px-4  py-16">
+          {/* Title */}
+          <div className="mb-12 sm:mb-16 lg:mb-20 flex relative justify-center text-center">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10">
+              My Latest Work
+            </h1>
+
+            <img
+              src={titleimg}
+              alt="title"
+              className="w-20 sm:w-32 lg:w-40 absolute -bottom-2 -right-6 z-[1]"
+            />
+          </div>
+
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 w-full">
             <img
               src={ecommerce}
-              class="w-96 hover:border-4 border-pink-600 hover:rounded-xl hover:scale-105 duration-700 ease-in-out"
+              alt="project 1"
+              className="w-full rounded-xl border border-white/10 hover:border-pink-500 
+      hover:scale-105 transition duration-500 object-cover"
             />
 
             <img
               src={edusity}
-              class="w-96 hover:border-4 border-pink-600 hover:rounded-xl hover:scale-105 duration-700 ease-in-out"
+              alt="project 2"
+              className="w-full rounded-xl border border-white/10 hover:border-pink-500 
+      hover:scale-105 transition duration-500 object-cover"
             />
-            {/* <img
-              src={work3}
-              class="w-96 hover:border-4 border-pink-600 hover:rounded-xl hover:scale-105 duration-700 ease-in-out"
-            />
-            <img
-              src={work4}
-              class="w-96 hover:border-4 border-pink-600 hover:rounded-xl hover:scale-105 duration-700 ease-in-out"
-            />
-            <img
-              src={work5}
-              class="w-96 hover:border-4 border-pink-600 hover:rounded-xl hover:scale-105 duration-700 ease-in-out"
-            />
-            <img
-              src={work6}
-              class="w-96 hover:border-4 border-pink-600 hover:rounded-xl hover:scale-105 duration-700 ease-in-out"
-            /> */}
           </div>
-          <button class="flex justify-center items-center gap-3 border-2 rounded-full px-9 py-4 text-xl border-white m-20 hover:scale-105 duration-700 ease-in-out">
+
+          {/* Button */}
+          <button className="mt-12 flex items-center gap-3 border border-white/40 rounded-full px-6 sm:px-9 py-3 sm:py-4 text-sm sm:text-lg hover:scale-105 hover:border-pink-500 transition duration-500">
             Show More <FaArrowRightLong />
           </button>
         </section>
+        <section className="text-white flex flex-col items-center px-4  py-16">
+          {/* Title */}
+          <div className="mb-12 sm:mb-16 lg:mb-20 flex relative justify-center text-center">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10">
+              Get In Touch{" "}
+            </h1>
 
-        <section>
-          <div class="text-white flex flex-col items-center  m-10">
-            <div class=" flex flex-evenly relative mb-20">
-              <h1 class="text-6xl font-bold z-10 relative ">Get in touch</h1>
-              <img
-                src={titleimg}
-                class="w-40 absolute -bottom-1.5 -right-8 z-[1]"
-              />
-            </div>
+            <img
+              src={titleimg}
+              alt="title"
+              className="w-20 sm:w-32 lg:w-40 absolute -bottom-2 -right-6 z-[1]"
+            />
           </div>
-          <div class="flex-col  md:gap-16  lg:flex-row  sm:flex-col text-white mx-32 justify-evenly">
-            <div class="w-full">
-              <h1 class="text-5xl pb-3 bg-gradient-to-r font-bold  from-purple-600 to-orange-500 inline-block text-transparent bg-clip-text">
+
+          {/* Content */}
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
+            {/* Left Side */}
+            <div className="w-full lg:w-1/2">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 to-orange-500 inline-block text-transparent bg-clip-text">
                 Let's talk
               </h1>
 
-              <p class="py-5">
-                I'm currently avaliable to take on new projects, so feel free to
-                send <br /> me a message about anything that you want me to work
-                on. You can <br /> contact anytime.
+              <p className="py-5 text-sm sm:text-base text-gray-300 leading-7">
+                I'm currently available to take on new projects. Feel free to
+                send me a message about anything you'd like me to work on. I
+                respond quickly and am open to freelance opportunities.
               </p>
-              <p class="flex gap-5 text-md pb-3">
-                <IoIosMail size={30} />
-                greatstackdev@gmail.com
-              </p>
-              <p class="flex gap-5 text-md pb-3">
-                <PiPhoneCallFill size={30} /> +772-825-524
-              </p>
-              <p class="flex gap-5 text-md">
-                <MdLocationOn size={30} />
-                CA, United States
-              </p>
-            </div>
-            <div class="w-full">
-              <form>
-                <label>Your Name</label>
-                <br />
-                <input
-                  type="text"
-                  placeholder="Enter your name"
-                  class="bg-slate-800 px-5 py-3 rounded-md my-3 w-full"
-                />
-                <br />
-                <label>Your Email</label>
-                <br />
 
-                <input
-                  type="text"
-                  placeholder="Enter your email"
-                  class="bg-slate-800 px-5 py-3 rounded-md my-3 w-full"
-                />
-                <br />
-                <label>Write your message here</label>
-                <br />
-                <textarea
-                  id="w3review"
-                  name="w3review"
-                  rows="8"
-                  cols="50"
-                  class="bg-slate-800 px-5 py-3 rounded-md my-3 w-full"
-                >
-                  Enter your message here
-                </textarea>
-                <button class="bg-gradient-to-r from-purple-600 to-orange-600 px-10 py-4 hover:scale-105 duration-500 rounded-full">
-                  {" "}
+              <div className="flex items-center gap-4 mb-4">
+                <IoIosMail size={24} />
+                <span className="text-sm sm:text-base">
+                  greatstackdev@gmail.com
+                </span>
+              </div>
+
+              <div className="flex items-center gap-4 mb-4">
+                <PiPhoneCallFill size={24} />
+                <span className="text-sm sm:text-base">+772-825-524</span>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <MdLocationOn size={24} />
+                <span className="text-sm sm:text-base">CA, United States</span>
+              </div>
+            </div>
+
+            {/* Right Side - Form */}
+            <div className="w-full lg:w-1/2">
+              <form className="space-y-4">
+                <div>
+                  <label className="text-sm">Your Name</label>
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    className="bg-slate-800 px-5 py-3 rounded-md w-full mt-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-sm">Your Email</label>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="bg-slate-800 px-5 py-3 rounded-md w-full mt-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-sm">Your Message</label>
+                  <textarea
+                    rows={6}
+                    placeholder="Enter your message"
+                    className="bg-slate-800 px-5 py-3 rounded-md w-full mt-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  ></textarea>
+                </div>
+
+                <button className="bg-gradient-to-r from-purple-600 to-orange-600 px-8 py-3 rounded-full hover:scale-105 transition duration-500 w-full sm:w-auto">
                   Submit Now
                 </button>
               </form>
@@ -396,41 +490,60 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <footer class="my-20 flex flex-col ">
-        <div class="flex  justify-around  ">
-          <div class="text-white">
-            <img src={logo} />
-            <p>
-              I am a frontend developer from, USA with 10 years of <br />
+      <footer className="my-20 flex flex-col px-4 md:px-10">
+        {/* Top Section */}
+        <div className="flex flex-col md:flex-row justify-between gap-10">
+          {/* Left */}
+          <div className=" flex flex-col md:items-start items-center px-4  py-16 text-white text-center md:text-left">
+            <div className="flex relative items-center justify-center md:justify-start">
+              <h1 className="text-3xl sm:text-4xl font-bold z-10 relative">
+                Neha
+              </h1>
+
+              <img
+                src={titleimg}
+                alt="title"
+                className="w-10 sm:w-14 absolute -bottom-1 -right-6  z-0"
+              />
+            </div>
+            <p className="mt-4 text-sm md:text-base leading-relaxed">
+              I am a frontend developer from USA with 10 years of{" "}
+              <br className="hidden md:block" />
               experience in companies like Microsoft, Tesla and Apple.
             </p>
           </div>
-          <div>
-            <BiUser class="text-slate-400 relative top-9 left-4 -z-[-1]" />
-            <input
-              type="text"
-              class="bg-slate-800 px-12 rounded-full py-4 w-80 me-5"
-              placeholder="Enter your email"
-            />
-            <button class="bg-gradient-to-r from-purple-600 to-orange-600 rounded-full px-10 text-white py-4">
+
+          {/* Right (Subscribe) */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-0">
+            <div className="relative w-full sm:w-auto">
+              <BiUser className="text-slate-400 absolute top-1/2 left-4 -translate-y-1/2" />
+              <input
+                type="text"
+                className="bg-slate-800 px-12 rounded-full py-4 w-full sm:w-80 text-white"
+                placeholder="Enter your email"
+              />
+            </div>
+
+            <button className="bg-gradient-to-r from-purple-600 to-orange-600 rounded-full px-10 text-white py-4 w-full sm:w-auto">
               Subscribe
             </button>
           </div>
         </div>
-        <div class="m-5 mx-auto h-0.5 bg-white w-[80%] flex justify-center  items-center">
-          {" "}
-        </div>
-        <div class="text-white flex justify-around  ">
-          <div>
-            <p>© 2023 Alex Bennett. All rights reserved.</p>
-          </div>
-          <div>
-            <ul class="flex gap-6">
-              <li>Term of Services</li>
-              <li>Privacy Policy</li>
-              <li>Connect with me</li>
-            </ul>
-          </div>
+
+        {/* Divider */}
+        <div className="my-8 h-0.5 bg-white w-full opacity-30" />
+
+        {/* Bottom Section */}
+        <div className="text-white flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+          <p>© 2023 Alex Bennett. All rights reserved.</p>
+
+          <ul className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6">
+            <li className="cursor-pointer hover:underline">
+              Terms of Services
+            </li>
+            <li className="cursor-pointer hover:underline">Privacy Policy</li>
+            <li className="cursor-pointer hover:underline">Connect with me</li>
+          </ul>
         </div>
       </footer>
     </div>
