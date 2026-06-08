@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import profile1 from "./assets/profile1.png";
 import profile from "./assets/profile.jpeg";
 import ecommerce from "./assets/ecommerce.png";
@@ -34,100 +34,142 @@ import { TbApi } from "react-icons/tb";
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const [active, setActive] = useState("home");
+
+  const navItems = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About Me" },
+    // { id: "services", label: "Services" },
+    { id: "portfolio", label: "Portfolio" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  const handleNavClick = (id) => {
+    setActive(id);
+
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    const sections = ["home", "about", "services", "portfolio", "contact"];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150;
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+
+        if (
+          element &&
+          scrollPosition >= element.offsetTop &&
+          scrollPosition < element.offsetTop + element.offsetHeight
+        ) {
+          setActive(section);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div class="min-h-screen py-10 bg-black overflow-x-hidden px-4 sm:px-8 lg:px-[10%]">
+    <div className="min-h-screen bg-black overflow-x-hidden">
       {" "}
-      <header class="py-5">
-        <nav class="flex items-center justify-between text-white relative">
+      <header className="fixed top-0 left-0 right-0 md:py-8 py-5 z-50 bg-black/90 backdrop-blur-md px-4 sm:px-8 lg:px-[10%]">
+        {" "}
+        <nav className="flex items-center justify-between text-white relative">
           {/* Logo */}
-          <div class="flex relative">
-            <h1 class="text-3xl sm:text-4xl font-bold z-10 relative">Neha</h1>
+          <div className="flex relative">
+            <h1 className="text-3xl sm:text-4xl font-bold z-10 relative">
+              Neha
+            </h1>
             <img
               src={titleimg}
               alt="title"
-              class="w-10 sm:w-14 absolute -bottom-1 -right-4 z-[1]"
+              className="w-10 sm:w-14 absolute -bottom-1 -right-4 z-[1]"
             />
           </div>
 
           {/* Desktop Menu */}
-          <ul class="hidden md:flex gap-8 lg:gap-10 items-center">
-            <li class="cursor-pointer hover:text-purple-400 transition">
-              Home
-            </li>
-            <li class="cursor-pointer hover:text-purple-400 transition">
-              About Me
-            </li>
-            <li class="cursor-pointer hover:text-purple-400 transition">
-              Services
-            </li>
-            <li class="cursor-pointer hover:text-purple-400 transition">
-              Portfolio
-            </li>
-            <li class="cursor-pointer hover:text-purple-400 transition">
-              Contact
-            </li>
+          <ul className="hidden md:flex gap-10 items-center">
+            {navItems.map((item) => (
+              <li
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`relative cursor-pointer pb-6 transition-all duration-300 ${
+                  active === item.id
+                    ? "text-white -translate-y-1"
+                    : "text-gray-300 hover:text-white"
+                }`}
+              >
+                {item.label}
+
+                {active === item.id && (
+                  <img
+                    src={titleimg}
+                    alt="active"
+                    className="absolute w-10 left-1/2 -translate-x-1/2 top-7"
+                  />
+                )}
+              </li>
+            ))}
           </ul>
 
-          {/* Desktop Button */}
-          <button class="hidden md:block bg-gradient-to-r from-purple-500 to-orange-500 rounded-full px-6 py-2 hover:scale-105 transition">
+          {/* Connect Button */}
+          <button className="hidden md:block bg-gradient-to-r from-purple-500 to-orange-500 rounded-full px-6 py-2 hover:scale-105 transition">
             Connect with me
           </button>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile Menu Button */}
           <button
-            class="md:hidden text-3xl"
+            className="md:hidden text-3xl"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? "✕" : "☰"}
           </button>
 
           {/* Mobile Menu */}
-          <div
-            class={`absolute top-16 left-0 w-full bg-slate-900 border border-slate-700 rounded-xl p-6 transition-all duration-300 md:hidden ${
-              menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-            }`}
-          >
-            <ul class="flex flex-col gap-5 text-center">
-              <li
-                class="cursor-pointer hover:text-purple-400"
-                onClick={() => setMenuOpen(false)}
-              >
-                Home
-              </li>
-              <li
-                class="cursor-pointer hover:text-purple-400"
-                onClick={() => setMenuOpen(false)}
-              >
-                About Me
-              </li>
-              <li
-                class="cursor-pointer hover:text-purple-400"
-                onClick={() => setMenuOpen(false)}
-              >
-                Services
-              </li>
-              <li
-                class="cursor-pointer hover:text-purple-400"
-                onClick={() => setMenuOpen(false)}
-              >
-                Portfolio
-              </li>
-              <li
-                class="cursor-pointer hover:text-purple-400"
-                onClick={() => setMenuOpen(false)}
-              >
-                Contact
-              </li>
-            </ul>
+          {menuOpen && (
+            <div className="absolute top-16 left-0 w-full bg-slate-900 border border-slate-700 rounded-xl p-6 md:hidden z-50">
+              <ul className="hidden md:flex gap-10 items-center">
+                {navItems.map((item) => (
+                  <li
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`relative cursor-pointer transition-all duration-300 pb-5 ${
+                      active === item.id
+                        ? "text-white font-medium"
+                        : "text-gray-300 hover:text-white"
+                    }`}
+                  >
+                    {item.label}
 
-            <button class="w-full mt-6 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full py-3">
-              Connect with me
-            </button>
-          </div>
+                    {active === item.id && (
+                      <img
+                        src={titleimg}
+                        alt="active"
+                        className="w-10 absolute -bottom-1 left-1/2 -translate-x-1/2"
+                      />
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </nav>
       </header>
-      <main>
-        <section className="flex flex-col items-center text-center md:py-10 py-5 ">
+      <main className="pt-24 px-4 sm:px-8 lg:px-[10%]">
+        {" "}
+        <section
+          id="home"
+          className="flex flex-col items-center text-center md:py-16 py-5 "
+        >
           {/* Profile Image */}
           <img
             src={profile1}
@@ -164,7 +206,10 @@ const Home = () => {
             </button>
           </div>
         </section>
-        <section className="flex flex-col items-center text-white ">
+        <section
+          id="about"
+          className="flex flex-col items-center text-white md:py-16 py-5 "
+        >
           {/* Title */}
           <div className="mb-12 sm:mb-16 flex relative justify-center">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10">
@@ -202,7 +247,7 @@ const Home = () => {
               </p>
 
               {/* Skills Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 py-10">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 py-16">
                 {[
                   {
                     name: "HTML & CSS",
@@ -289,7 +334,10 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="text-white flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 lg:gap-32 my-16 px-4 ">
+        <section
+          id="services"
+          className="text-white flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 lg:gap-32 md:py-16 py-5  "
+        >
           {/* Experience */}
           <div className="text-center hover:scale-110 transition duration-500">
             <h1 className="text-3xl sm:text-4xl font-bold mb-2 bg-gradient-to-r from-purple-500 to-orange-500 inline-block text-transparent bg-clip-text">
@@ -324,7 +372,10 @@ const Home = () => {
             <p className="text-sm sm:text-base lg:text-lg">HAPPY CLIENTS</p>
           </div>
         </section>
-        <section className="my-16 flex flex-col items-center text-white px-4 ">
+        <section
+          id="portfolio"
+          className="md:py-16 py-5 flex flex-col items-center text-white  "
+        >
           {/* Title */}
           <div className="mb-12 sm:mb-16 lg:mb-20 flex relative justify-center">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10 text-center">
@@ -370,7 +421,10 @@ const Home = () => {
             ))}
           </div>
         </section>
-        <section className="text-white flex flex-col items-center px-4  py-16">
+        <section
+          id="contact"
+          className="text-white flex flex-col items-center px-4  md:py-16 py-5"
+        >
           {/* Title */}
           <div className="mb-12 sm:mb-16 lg:mb-20 flex relative justify-center text-center">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10">
@@ -406,7 +460,7 @@ const Home = () => {
             Show More <FaArrowRightLong />
           </button>
         </section>
-        <section className="text-white flex flex-col items-center px-4  py-16">
+        <section className="text-white flex flex-col items-center px-4  md:py-16 py-5">
           {/* Title */}
           <div className="mb-12 sm:mb-16 lg:mb-20 flex relative justify-center text-center">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold z-10">
@@ -490,11 +544,11 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <footer className="my-20 flex flex-col px-4 md:px-10">
+      <footer className="my-20 flex flex-col px-4 md:px-10  sm:px-8 lg:px-[10%] md:py-16 py-5">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between gap-10">
           {/* Left */}
-          <div className=" flex flex-col md:items-start items-center px-4  py-16 text-white text-center md:text-left">
+          <div className=" flex flex-col md:items-start items-center   py-16 text-white text-center md:text-left">
             <div className="flex relative items-center justify-center md:justify-start">
               <h1 className="text-3xl sm:text-4xl font-bold z-10 relative">
                 Neha
@@ -507,9 +561,9 @@ const Home = () => {
               />
             </div>
             <p className="mt-4 text-sm md:text-base leading-relaxed">
-              I am a frontend developer from USA with 10 years of{" "}
+              I am a fullstack developer from INDIA with 5 years of{" "}
               <br className="hidden md:block" />
-              experience in companies like Microsoft, Tesla and Apple.
+              experience in companies
             </p>
           </div>
 
